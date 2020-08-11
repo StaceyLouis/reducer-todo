@@ -1,7 +1,8 @@
 import React, { useState } from "react"
  
 
-function Form({dispatch}){
+function Form(props){
+    const {add , clear} = props
     const [list, setList] = useState("");
 
     const handleChanges = e => {
@@ -11,29 +12,26 @@ function Form({dispatch}){
 
     const submitChanges = e =>{
         e.preventDefault();
-        dispatch({
-            type: "add",
-            data: [list]
-        })
+       add(list);
+       setList('');
     }
 
     const clearChanges = (e) => {
         e.preventDefault();
-        dispatch({
-            type: 'clear'
-        })
+        clear()
     }
+    
     return(
         <div>
-        <form id="to-do-form" onSubmit={submitChanges}>
+        <form id="to-do-form">
         <input 
         type="text" 
+        name="'item"
         placeholder="Enter task here"
         value={list}
         onChange={handleChanges}
-        id={Date.now()}
         />
-            <button>Add</button>
+            <button type="submit" onClick={submitChanges}>Add</button>
             <button onClick={clearChanges}> Clear</button>
             </form>
            </div> 

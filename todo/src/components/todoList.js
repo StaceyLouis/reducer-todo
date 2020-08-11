@@ -1,18 +1,22 @@
-import React, { useReducer } from 'react'
-import{reducer, toDo} from '../reducers/index'
-import Form from './todoForm'
-import Todo from './todo'
+import React, { useState, useReducer } from 'react'
 
 
-function List(){
-    const [state, dispatch]= useReducer(reducer, toDo)
+function List(props) {
+  const  {list, toggle} = props;
+
+ 
     return(
-
         <div>
-            <Form dispatch={dispatch} />
-            {state.map(item =>{
-                return <Todo todo = {item} dispatch={dispatch} key={item.id}/>
-            })}
+            {
+                list.map( item =>{
+                    return <div 
+                    key={item.id} 
+                    onClick={() => toggle(item.id)}
+                    className={`item${item.completed? 'completed': ''}`}>
+                        <p>{item.item}</p>
+                    </div>
+                })
+            }
         </div>
     )
 }
