@@ -20,6 +20,17 @@ function Form(props){
         e.preventDefault();
         clear()
     }
+
+    
+  const onDelete = (key) =>{
+    const filteredItems = list.filter(item =>
+      item.key !== key);
+        setList({
+            list: filteredItems
+        })
+      
+}
+
     
     return(
         <div>
@@ -32,7 +43,7 @@ function Form(props){
         onChange={handleChanges}
         />
             <button type="submit" onClick={submitChanges}>Add</button>
-            <button onClick={clearChanges}> Clear</button>
+            <button onClick={() => onDelete(list.key)}> Clear</button>
             </form>
            </div> 
     
