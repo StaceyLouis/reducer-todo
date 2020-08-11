@@ -25,7 +25,7 @@ export const reducer = (state, action )=>{
                list: state.list.map((item,id) =>{
                    if( id=== action.id){
                        return {
-                           ...item, completed:!item.completed
+                           ...item, completed: !item.completed
                        }
                    } else {
                        return item

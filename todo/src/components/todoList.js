@@ -8,11 +8,11 @@ function List(props) {
     return(
         <div>
             {
-                list.map( item =>{
+                list.map( (item,id) =>{
                     return <div 
                     key={item.id} 
-                    onClick={() => toggle(item.id)}
-                    className={`item${item.completed? 'completed': ''}`}>
+                    onClick={() => toggle(item.id),id}
+                    style={{color:item.completed? 'red': 'black'}}>
                         <p>{item.item}</p>
                     </div>
                 })

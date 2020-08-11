@@ -21,15 +21,7 @@ function Form(props){
         clear()
     }
 
-    
-  const onDelete = (key) =>{
-    const filteredItems = list.filter(item =>
-      item.key !== key);
-        setList({
-            list: filteredItems
-        })
-      
-}
+
 
     
     return(
@@ -43,7 +35,7 @@ function Form(props){
         onChange={handleChanges}
         />
             <button type="submit" onClick={submitChanges}>Add</button>
-            <button onClick={() => onDelete(list.key)}> Clear</button>
+            <button onClick={() => clearChanges(list.key)}> Clear</button>
             </form>
            </div> 
     
