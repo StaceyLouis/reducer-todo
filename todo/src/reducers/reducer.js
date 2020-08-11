@@ -22,8 +22,8 @@ export const reducer = (state, action )=>{
 
         case 'toggle':
             return {
-               list: state.list.map(item =>{
-                   if(item.id=== action.payload){
+               list: state.list.map((item,id) =>{
+                   if( id=== action.id){
                        return {
                            ...item, completed:!item.completed
                        }
@@ -35,9 +35,9 @@ export const reducer = (state, action )=>{
 
             case 'clear':
                 return {
-                    list: state.list.filter(item => !item.completed
-                )
-            }
+                    list: state.list.filter(item => item.completed === false)
+                }
+            
 
                 default:
 
