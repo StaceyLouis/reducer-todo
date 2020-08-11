@@ -11,8 +11,8 @@ function List(props) {
                 list.map( (item,id) =>{
                     return <div 
                     key={item.id} 
-                    onClick={() => toggle(item.id),id}
-                    style={{color:item.completed? 'red': 'black'}}>
+                    onClick={() => toggle(item.id)}
+                    style={{color:item.completed? 'red': 'black', textDecoration:item.completed? 'line-through': 'none'}}>
                         <p>{item.item}</p>
                     </div>
                 })
